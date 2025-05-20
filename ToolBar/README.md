@@ -1,0 +1,2 @@
+# Utilizing a toolbar to change the background color of a panel i Java
+🧰 ToolBar.java – A Java Swing GUI demonstrating a horizontal JToolBar with buttons to change the background color of a panel. Includes tooltip support and a toggle to hide/show the toolbar for a cleaner interface.
