@@ -1,6 +1,6 @@
 # Working with GridBagLayout in java using a helper class
 A Java Swing application demonstrating the use of GridBagLayout for flexible UI design. 
-## It features:
+## features:
 
 - Font face selection from system fonts via a combo box.
 
