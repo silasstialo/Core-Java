@@ -1,0 +1,12 @@
+Let’s explore a little more what we mean by an infrastructure that provides
+services to applications. To this end, suppose you have an exciting new idea for a dis-
+tributed Internet application, one that may greatly benefit humanity or one that may
+simply make you rich and famous. How might you go about transforming this idea
+into an actual Internet application? Because applications run on end systems, you are
+going to need to write programs that run on the end systems. You might, for example,
+write your programs in Java, C, or Python. Now, because you are developing a dis-
+tributed Internet application, the programs running on the different end systems will
+need to send data to each other. And here we get to a central issue—one that leads
+to the alternative way of describing the Internet as a platform for applications. How
+does one program running on one end system instruct the Internet to deliver data to
+another program running on another end system?

@@ -1,0 +1,13 @@
+Our discussion above has identified many of the pieces that make up the Internet.
+But we can also describe the Internet from an entirely different angle—namely, as
+an infrastructure that provides services to applications. In addition to traditional
+applications such as e-mail and Web surfing, Internet applications include mobile
+smartphone and tablet applications, including Internet messaging, mapping with
+real-time road-traffic information, music streaming movie and television streaming,
+online social media, video conferencing, multi-person games, and location-based
+recommendation systems. The applications are said to be distributed applications,
+since they involve multiple end systems that exchange data with each other. Impor-
+tantly, Internet applications run on end systems—they do not run in the packet
+switches in the network core. Although packet switches facilitate the exchange of
+data among end systems, they are not concerned with the application that is the
+source or sink of data.

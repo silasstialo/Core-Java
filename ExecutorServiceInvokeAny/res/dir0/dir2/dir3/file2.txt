@@ -1,0 +1,28 @@
+1.1 • WHAT IS THE INTERNET? 5
+ISPs that provide access to end systems must also be interconnected. These lower-
+tier ISPs are thus interconnected through national and international upper-tier ISPs
+and these upper-tier ISPs are connected directly to each other. An upper-tier ISP
+consists of high-speed routers interconnected with high-speed fiber-optic links. Each
+ISP network, whether upper-tier or lower-tier, is managed independently, runs the
+IP protocol (see below), and conforms to certain naming and address conventions.
+We’ll examine ISPs and their interconnection more closely in Section 1.3.
+End systems, packet switches, and other pieces of the Internet run protocols that
+control the sending and receiving of information within the Internet. The Transmission
+Control Protocol (TCP) and the Internet Protocol (IP) are two of the most impor-
+tant protocols in the Internet. The IP protocol specifies the format of the packets
+that are sent and received among routers and end systems. The Internet’s principal
+protocols are collectively known as TCP/IP. We’ll begin looking into protocols in
+this introductory chapter. But that’s just a start—much of this book is concerned with
+networking protocols!
+Given the importance of protocols to the Internet, it’s important that everyone
+agree on what each and every protocol does, so that people can create systems and
+products that interoperate. This is where standards come into play. Internet standards
+are developed by the Internet Engineering Task Force (IETF) [IETF 2020]. The IETF
+standards documents are called requests for comments (RFCs). RFCs started out
+as general requests for comments (hence the name) to resolve network and protocol
+design problems that faced the precursor to the Internet [Allman 2011]. RFCs tend
+to be quite technical and detailed. They define protocols such as TCP, IP, HTTP (for
+the Web), and SMTP (for e-mail). There are currently nearly 9000 RFCs. Other bod-
+ies also specify standards for network components, most notably for network links.
+The IEEE 802 LAN Standards Committee [IEEE 802 2020], for example, specifies
+the Ethernet and wireless WiFi standards
