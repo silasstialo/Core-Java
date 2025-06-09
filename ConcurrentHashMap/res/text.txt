@@ -1,0 +1,478 @@
+There are many different ways to teach a database course. The chapters in Parts 1
+through 7 can be used in an introductory course on database systems in the order
+that they are given or in the preferred order of individual instructors. Selected chap-
+ters and sections may be left out and the instructor can add other chapters from the
+rest of the book, depending on the emphasis of the course. At the end of the open-
+ing section of some of the book’s chapters, we list sections that are candidates for
+being left out whenever a less-detailed discussion of the topic is desired. We suggest
+covering up to Chapter 15 in an introductory database course and including selected
+parts of other chapters, depending on the background of the students and the
+desired coverage. For an emphasis on system implementation techniques, chapters
+from Parts 7, 8, and 9 should replace some of the earlier chapters.
+
+Chapters 3 and 4, which cover conceptual modeling using the ER and EER models,
+are important for a good conceptual understanding of databases. However, they
+may be partially covered, covered later in a course, or even left out if the emphasis
+is on DBMS implementation. Chapters 16 and 17 on file organizations and indexing
+may also be covered early, later, or even left out if the emphasis is on database mod-
+els and languages. For students who have completed a course on file organization,
+parts of these chapters can be assigned as reading material or some exercises can be
+assigned as a review for these concepts.
+
+If the emphasis of a course is on database design, then the instructor should cover
+Chapters 3 and 4 early on, followed by the presentation of relational databases. A
+total life-cycle database design and implementation project would cover conceptual
+design (Chapters 3 and 4), relational databases (Chapters 5, 6, and 7), data model
+mapping (Chapter 9), normalization (Chapter 14), and application programs
+implementation with SQL (Chapter 10). Chapter 11 also should be covered if the
+emphasis is on Web database programming and applications. Additional documen-
+tation on the specific programming languages and RDBMS used would be required.
+The book is written so that it is possible to cover topics in various sequences. The
+following chapter dependency chart shows the major dependencies among chap-
+ters. As the diagram illustrates, it is possible to start with several different topics
+following the first two introductory chapters. Although the chart may seem com-
+plex, it is important to note that if the chapters are covered in order, the dependen-
+cies are not lost. The chart can be consulted by instructors wishing to use an
+alternative order of presentation.
+
+For a one-semester course based on this book, selected chapters can be assigned as
+reading material. The book also can be used for a two-semester course sequence.
+The first course, Introduction to Database Design and Database Systems, at the
+sophomore, junior, or senior level, can cover most of Chapters 1 through 15. The
+second course, Database Models and Implementation Techniques, at the senior or
+first-year graduate level, can cover most of Chapters 16 through 30. The two-
+semester sequence can also be designed in various other ways, depending on the
+preferences of the instructors.
+
+6 Chapter 1 Databases and Database Users
+database management system. Of course, we are only concerned with computer-
+ized databases in this text.
+
+A database management system (DBMS) is a computerized system that enables
+users to create and maintain a database. The DBMS is a general-purpose software
+system that facilitates the processes of defining, constructing, manipulating, and
+sharing databases among various users and applications. Defining a database
+involves specifying the data types, structures, and constraints of the data to be
+stored in the database. The database definition or descriptive information is also
+stored by the DBMS in the form of a database catalog or dictionary; it is called
+meta-data. Constructing the database is the process of storing the data on some
+storage medium that is controlled by the DBMS. Manipulating a database includes
+functions such as querying the database to retrieve specific data, updating the data-
+base to reflect changes in the miniworld, and generating reports from the data.
+Sharing a database allows multiple users and programs to access the database
+simultaneously.
+
+An application program accesses the database by sending queries or requests for
+data to the DBMS. A query2 typically causes some data to be retrieved; a transaction
+may cause some data to be read and some data to be written into the database.
+Other important functions provided by the DBMS include protecting the database
+and maintaining it over a long period of time. Protection includes system protec-
+tion against hardware or software malfunction (or crashes) and security protection
+against unauthorized or malicious access. A typical large database may have a life
+cycle of many years, so the DBMS must be able to maintain the database system by
+allowing the system to evolve as requirements change over time.
+
+It is not absolutely necessary to use general-purpose DBMS software to implement
+a computerized database. It is possible to write a customized set of programs to cre-
+ate and maintain the database, in effect creating a special-purpose DBMS software
+for a specific application, such as airlines reservations. In either case—whether we
+use a general-purpose DBMS or not—a considerable amount of complex software
+is deployed. In fact, most DBMSs are very complex software systems.
+To complete our initial definitions, we will call the database and DBMS software
+together a database system. Figure 1.1 illustrates some of the concepts we have
+discussed so far.
+
+In traditional file processing, the structure of data files is embedded in the applica-
+tion programs, so any changes to the structure of a file may require changing all
+programs that access that file. By contrast, DBMS access programs do not require
+such changes in most cases. The structure of data files is stored in the DBMS cata-
+log separately from the access programs. We call this property program-data
+independence.
+
+For example, a file access program may be written in such a way that it can access
+only STUDENT records of the structure shown in Figure 1.4. If we want to add
+another piece of data to each STUDENT record, say the Birth_date, such a program
+will no longer work and must be changed. By contrast, in a DBMS environment, we
+only need to change the description of STUDENT records in the catalog (Figure 1.3)
+to reflect the inclusion of the new data item Birth_date; no programs are changed.
+The next time a DBMS program refers to the catalog, the new structure of
+STUDENT records will be accessed and used.
+
+In some types of database systems, such as object-oriented and object-relational
+systems (see Chapter 12), users can define operations on data as part of the database
+definitions. An operation (also called a function or method) is specified in two
+parts. The interface (or signature) of an operation includes the operation name and
+the data types of its arguments (or parameters). The implementation (or method) of
+the operation is specified separately and can be changed without affecting the inter-
+face. User application programs can operate on the data by invoking these opera-
+tions through their names and arguments, regardless of how the operations are
+implemented. This may be termed program-operation independence.
+
+The characteristic that allows program-data independence and program-operation
+independence is called data abstraction. A DBMS provides users with a conceptual
+representation of data that does not include many of the details of how the data is
+stored or how the operations are implemented. Informally, a data model is a type of
+data abstraction that is used to provide this conceptual representation. The data
+model uses logical concepts, such as objects, their properties, and their interrela-
+tionships, that may be easier for most users to understand than computer storage
+concepts. Hence, the data model hides storage and implementation details that are
+not of interest to most database users.
+
+Looking at the example in Figures 1.2 and 1.3, the internal implementation of the
+STUDENT file may be defined by its record length—the number of characters
+(bytes) in each record—and each data item may be specified by its starting byte
+within a record and its length in bytes. The STUDENT record would thus be repre-
+sented as shown in Figure 1.4. But a typical database user is not concerned with the
+location of each data item within a record or its length; rather, the user is concerned
+that when a reference is made to Name of STUDENT, the correct value is returned.
+A conceptual representation of the STUDENT records is shown in Figure 1.2. Many
+other details of file storage organization—such as the access paths specified on a.
+
+he architecture of DBMS packages has evolved
+from the early monolithic systems, where the whole
+DBMS software package was one tightly integrated system, to the modern DBMS
+packages that are modular in design, with a client/server system architecture. The
+recent growth in the amount of data requiring storage has led to database systems
+with distributed architectures comprised of thousands of computers that manage
+the data stores. This evolution mirrors the trends in computing, where large cen-
+tralized mainframe computers are replaced by hundreds of distributed worksta-
+tions and personal computers connected via communications networks to various
+types of server machines—Web servers, database servers, file servers, application
+servers, and so on. The current cloud computing environments consist of thou-
+sands of large servers managing so-called big data for users on the Web.
+
+In a basic client/server DBMS architecture, the system functionality is distributed
+between two types of modules. 1 A client module is typically designed so that it
+will run on a mobile device, user workstation, or personal computer (PC). Typi-
+cally, application programs and user interfaces that access the database run in the
+client module. Hence, the client module handles user interaction and provides
+the user-friendly interfaces such as apps for mobile devices, or forms- or menu-
+based GUIs (graphical user interfaces) for PCs. The other kind of module, called
+a server module, typically handles data storage, access, search, and other func-
+tions. We discuss client/server architectures in more detail in Section 2.5. First,
+we must study more basic concepts that will give us a better understanding of
+modern database architectures.
+
+In this chapter we present the terminology and basic concepts that will be used
+throughout the text. Section 2.1 discusses data models and defines the concepts
+of schemas and instances, which are fundamental to the study of database sys-
+tems. We discuss the three-schema DBMS architecture and data independence
+in Section 2.2; this provides a user’s perspective on what a DBMS is supposed to
+do. In Section 2.3 we describe the types of interfaces and languages that are typi-
+cally provided by a DBMS. Section 2.4 discusses the database system software
+environment. Section 2.5 gives an overview of various types of client/server
+architectures. Finally, Section 2.6 presents a classification of the types of DBMS
+packages. Section 2.7 summarizes the chapter.
+
+One fundamental characteristic of the database approach is that it provides some
+level of data abstraction. Data abstraction generally refers to the suppression of
+details of data organization and storage, and the highlighting of the essential fea-
+tures for an improved understanding of data. One of the main characteristics of the
+database approach is to support data abstraction so that different users can perceive
+data at their preferred level of detail. A data model—a collection of concepts that
+can be used to describe the structure of a database—provides the necessary means
+to achieve this abstraction. 2 By structure of a database we mean the data types, rela-
+tionships, and constraints that apply to the data. Most data models also include a
+set of basic operations for specifying retrievals and updates on the database.
+
+In addition to the basic operations provided by the data model, it is becoming more
+common to include concepts in the data model to specify the dynamic aspect or
+behavior of a database application. This allows the database designer to specify a set
+of valid user-defined operations that are allowed on the database objects.3 An
+example of a user-defined operation could be COMPUTE_GPA, which can be
+applied to a STUDENT object. On the other hand, generic operations to insert,
+delete, modify, or retrieve any kind of object are often included in the basic data
+model operations. Concepts to specify behavior are fundamental to object-oriented
+data models (see Chapter 12) but are also being incorporated in more traditional
+data models. For example, object-relational models (see Chapter 12) extend the basic
+relational model to include such concepts, among others. In the basic relational data
+model, there is a provision to attach behavior to the relations in the form of persis-
+tent stored modules, popularly known as stored procedures (see Chapter 10).
+
+Many data models have been proposed, which we can categorize according to
+the types of concepts they use to describe the database structure. High-level or
+conceptual data models provide concepts that are close to the way many users per-
+ceive data, whereas low-level or physical data models provide concepts that describe
+the details of how data is stored on the computer storage media, typically magnetic
+disks. Concepts provided by physical data models are generally meant for computer
+specialists, not for end users. Between these two extremes is a class of representational
+(or implementation) data models, 4 which provide concepts that may be easily
+understood by end users but that are not too far removed from the way data is orga-
+nized in computer storage. Representational data models hide many details of data
+storage on disk but can be implemented on a computer system directly.
+
+Conceptual data models use concepts such as entities, attributes, and relationships.
+An entity represents a real-world object or concept, such as an employee or a project
+from the miniworld that is described in the database. An attribute represents some
+property of interest that further describes an entity, such as the employee’s name or
+salary. A relationship among two or more entities represents an association among
+the entities, for example, a works-on relationship between an employee and a
+project. Chapter 3 presents the entity–relationship model—a popular high-level
+conceptual data model. Chapter 4 describes additional abstractions used for advanced
+modeling, such as generalization, specialization, and categories (union types).
+
+Representational or implementation data models are the models used most fre-
+quently in traditional commercial DBMSs. These include the widely used relational
+data model, as well as the so-called legacy data models—the network and
+hierarchical models—that have been widely used in the past. Part 3 of the text is
+devoted to the relational data model, and its constraints, operations, and languages.5
+The SQL standard for relational databases is described in Chapters 6 and 7. Repre-
+sentational data models represent data by using record structures and hence are
+sometimes called record-based data models.
+
+We can regard the object data model as an example of a new family of higher-level
+implementation data models that are closer to conceptual data models. A standard
+for object databases called the ODMG object model has been proposed by the
+Object Data Management Group (ODMG). We describe the general characteristics
+of object databases and the object model proposed standard in Chapter 12. Object
+data models are also frequently utilized as high-level conceptual models, particu-
+larly in the software engineering domain
+
+access path is a search structure that makes the search for particular database
+records efficient, such as indexing or hashing. We discuss physical storage tech-
+niques and access structures in Chapters 16 and 17. An index is an example of an
+access path that allows direct access to data using an index term or a keyword. It is
+similar to the index at the end of this text, except that it may be organized in a lin-
+ear, hierarchical (tree-structured), or some other fashion.
+
+Another class of data models is known as self-describing data models. The data
+storage in systems based on these models combines the description of the data with
+the data values themselves. In traditional DBMSs, the description (schema) is sepa-
+rated from the data. These models include XML (see Chapter 12) as well as many of
+the key-value stores and NOSQL systems (see Chapter 24) that were recently cre-
+ated for managing big data
+
+In a data model, it is important to distinguish between the description of the
+database and the database itself. The description of a database is called the
+database schema, which is specified during database design and is not expected
+to change frequently. 6 Most data models have certain conventions for displaying
+schemas as diagrams. 7 A displayed schema is called a schema diagram. Figure 2.1
+shows a schema diagram for the database shown in Figure 1.2; the diagram dis-
+plays the structure of each record type but not the actual instances of records.
+
+We call each object in the schema—such as STUDENT or COURSE—a schema
+construct.
+
+A schema diagram displays only some aspects of a schema, such as the names of
+record types and data items, and some types of constraints. Other aspects are not
+specified in the schema diagram; for example, Figure 2.1 shows neither the data
+type of each data item nor the relationships among the various files. Many types of
+constraints are not represented in schema diagrams. A constraint such as students
+majoring in computer science must take CS1310 before the end of their sophomore
+year is quite difficult to represent diagrammatically.
+
+The actual data in a database may change quite frequently. For example, the data-
+base shown in Figure 1.2 changes every time we add a new student or enter a new
+grade. The data in the database at a particular moment in time is called a database
+state or snapshot. It is also called the current set of occurrences or instances in
+the database. In a given database state, each schema construct has its own current
+set of instances; for example, the STUDENT construct will contain the set of indi-
+vidual student entities (records) as its instances. Many database states can be con-
+structed to correspond to a particular database schema. Every time we insert or
+delete a record or change the value of a data item in a record, we change one state
+of the database into another state.
+
+The distinction between database schema and database state is very important.
+When we define a new database, we specify its database schema only to the
+DBMS. At this point, the corresponding database state is the empty state with
+no data. We get the initial state of the database when the database is first
+populated or loaded with the initial data. From then on, every time an update
+operation is applied to the database, we get another database state. At any point
+in time, the database has a current state. 8 The DBMS is partly responsible for
+ensuring that every state of the database is a valid state—that is, a state that
+satisfies the structure and constraints specified in the schema. Hence, specify-
+ing a correct schema to the DBMS is extremely important and the schema must
+be designed with utmost care. The DBMS stores the descriptions of the schema
+constructs and constraints—also called the meta-data—in the DBMS catalog so
+that DBMS software can refer to the schema whenever it needs to. The schema
+is sometimes called the intension, and a database state is called an extension of
+the schema.
+
+Although, as mentioned earlier, the schema is not supposed to change frequently,
+it is not uncommon that changes occasionally need to be applied to the schema as
+the application requirements change. For example, we may decide that another
+data item needs to be stored for each record in a file, such as adding the Date_of_birth
+to the STUDENT schema in Figure 2.1. This is known as schema evolution. Most
+modern DBMSs include some operations for schema evolution that can be applied
+while the database is operational.
+
+The three-schema architecture is a convenient tool with which the user can visual-
+ize the schema levels in a database system. Most DBMSs do not separate the three
+levels completely and explicitly, but they support the three-schema architecture to
+some extent. Some older DBMSs may include physical-level details in the concep-
+tual schema. The three-level ANSI architecture has an important place in database
+technology development because it clearly separates the users’ external level, the
+database’s conceptual level, and the internal storage level for designing a database.
+It is very much applicable in the design of DBMSs, even today. In most DBMSs that
+support user views, external schemas are specified in the same data model that
+describes the conceptual-level information (for example, a relational DBMS like
+Oracle or SQLServer uses SQL for this).
+
+Notice that the three schemas are only descriptions of data; the actual data is stored
+at the physical level only. In the three-schema architecture, each user group refers
+to its own external schema. Hence, the DBMS must transform a request specified
+on an external schema into a request against the conceptual schema, and then into
+a request on the internal schema for processing over the stored database. If the
+request is a database retrieval, the data extracted from the stored database must be
+reformatted to match the user’s external view. The processes of transforming
+requests and results between levels are called mappings. These mappings may be
+time-consuming, so some DBMSs—especially those that are meant to support small
+databases—do not support external views. Even in such systems, however, it is nec-
+essary to transform requests between the conceptual and internal levels.
+
+Generally, physical data independence exists in most databases and file environ-
+ments where physical details, such as the exact location of data on disk, and hard-
+ware details of storage encoding, placement, compression, splitting, merging of
+records, and so on are hidden from the user. Applications remain unaware of these
+details. On the other hand, logical data independence is harder to achieve because it
+allows structural and constraint changes without affecting application programs—a
+much stricter requirement.
+
+Whenever we have a multiple-level DBMS, its catalog must be expanded to include
+information on how to map requests and data among the various levels. The DBMS
+uses additional software to accomplish these mappings by referring to the mapping
+information in the catalog. Data independence occurs because when the schema is
+changed at some level, the schema at the next higher level remains unchanged; only
+the mapping between the two levels is changed. Hence, application programs refer-
+ring to the higher-level schema need not be changed.
+
+Once the design of a database is completed and a DBMS is chosen to implement the
+database, the first step is to specify conceptual and internal schemas for the data-
+base and any mappings between the two. In many DBMSs where no strict separa-
+tion of levels is maintained, one language, called the data definition language
+(DDL), is used by the DBA and by database designers to define both schemas. The
+DBMS will have a DDL compiler whose function is to process DDL statements in
+order to identify descriptions of the schema constructs and to store the schema
+description in the DBMS catalog.
+
+In DBMSs where a clear separation is maintained between the conceptual and
+internal levels, the DDL is used to specify the conceptual schema only. Another
+language, the storage definition language (SDL), is used to specify the internal
+schema. The mappings between the two schemas may be specified in either one of
+these languages. In most relational DBMSs today, there is no specific language that
+performs the role of SDL. Instead, the internal schema is specified by a combination
+of functions, parameters, and specifications related to storage of files. These permit
+the DBA staff to control indexing choices and mapping of data to storage. For a true
+three-schema architecture, we would need a third language, the view definition
+language (VDL), to specify user views and their mappings to the conceptual
+schema, but in most DBMSs the DDL is used to define both conceptual and external
+schemas. In relational DBMSs, SQL is used in the role of VDL to define user or
+application views as results of predefined queries (see Chapters 6 and 7).
+Once the database schemas are compiled and the database is populated with data,
+users must have some means to manipulate the database. Typical manipulations
+include retrieval, insertion, deletion, and modification of the data. The DBMS pro-
+vides a set of operations or a language called the data manipulation language
+(DML) for these purposes.
+
+In current DBMSs, the preceding types of languages are usually not considered dis-
+tinct languages; rather, a comprehensive integrated language is used that includes
+constructs for conceptual schema definition, view definition, and data manipula-
+tion. Storage definition is typically kept separate, since it is used for defining physi-
+cal storage structures to fine-tune the performance of the database system, which is
+usually done by the DBA staff. A typical example of a comprehensive database lan-
+guage is the SQL relational database language (see Chapters 6 and 7), which repre-
+sents a combination of DDL, VDL, and DML, as well as statements for constraint
+specification, schema evolution, and many other features. The SDL was a compo-
+nent in early versions of SQL but has been removed from the language to keep it at
+the conceptual and external levels only.
+
+There are two main types of DMLs. A high-level or nonprocedural DML can be
+used on its own to specify complex database operations concisely. Many DBMSs
+allow high-level DML statements either to be entered interactively from a display
+monitor or terminal or to be embedded in a general-purpose programming lan-
+guage. In the latter case, DML statements must be identified within the program so.
+
+allow users to login using their account name and password; the apps then provide
+a limited menu of options for mobile access to the user data, as well as options such
+as paying bills (for banks) or making reservations (for reservation Web sites).
+Forms-based Interfaces. A forms-based interface displays a form to each user.
+
+Users can fill out all of the form entries to insert new data, or they can fill out only
+certain entries, in which case the DBMS will retrieve matching data for the remain-
+ing entries. Forms are usually designed and programmed for naive users as inter-
+faces to canned transactions. Many DBMSs have forms specification languages,
+which are special languages that help programmers specify such forms. SQL*Forms
+is a form-based language that specifies queries using a form designed in conjunc-
+tion with the relational database schema. Oracle Forms is a component of the Ora-
+cle product suite that provides an extensive set of features to design and build
+applications using forms. Some systems have utilities that define a form by letting
+the end user interactively construct a sample form on the screen.
+
+Graphical User Interfaces. A GUI typically displays a schema to the user in dia-
+grammatic form. The user then can specify a query by manipulating the diagram.
+In many cases, GUIs utilize both menus and forms.
+
+Natural Language Interfaces. These interfaces accept requests written in Eng-
+lish or some other language and attempt to understand them. A natural language
+interface usually has its own schema, which is similar to the database conceptual
+schema, as well as a dictionary of important words. The natural language interface
+refers to the words in its schema, as well as to the set of standard words in its dic-
+tionary, that are used to interpret the request. If the interpretation is successful, the
+interface generates a high-level query corresponding to the natural language request
+and submits it to the DBMS for processing; otherwise, a dialogue is started with the
+user to clarify the request.
+
+Keyword-based Database Search. These are somewhat similar to Web search
+engines, which accept strings of natural language (like English or Spanish) words
+and match them with documents at specific sites (for local search engines) or Web
+pages on the Web at large (for engines like Google or Ask). They use predefined
+indexes on words and use ranking functions to retrieve and present resulting docu-
+ments in a decreasing degree of match. Such “free form” textual query interfaces are
+not yet common in structured relational databases, although a research area called
+keyword-based querying has emerged recently for relational databases.
+
+Speech Input and Output. Limited use of speech as an input query and speech
+as an answer to a question or result of a request is becoming commonplace. Appli-
+cations with limited vocabularies, such as inquiries for telephone directory, flight
+arrival/departure, and credit card account information, are allowing speech for
+input and output to enable customers to access this information. The speech input
+is detected using a library of predefined words and used to set up the parameters
+that are supplied to the queries. For output, a similar conversion from text or num-
+bers into speech takes place.
+
+allow users to login using their account name and password; the apps then provide
+a limited menu of options for mobile access to the user data, as well as options such
+as paying bills (for banks) or making reservations (for reservation Web sites).
+Forms-based Interfaces. A forms-based interface displays a form to each user.
+Users can fill out all of the form entries to insert new data, or they can fill out only
+certain entries, in which case the DBMS will retrieve matching data for the remain-
+ing entries. Forms are usually designed and programmed for naive users as inter-
+faces to canned transactions. Many DBMSs have forms specification languages,
+which are special languages that help programmers specify such forms. SQL*Forms
+is a form-based language that specifies queries using a form designed in conjunc-
+tion with the relational database schema. Oracle Forms is a component of the Ora-
+cle product suite that provides an extensive set of features to design and build
+applications using forms. Some systems have utilities that define a form by letting
+the end user interactively construct a sample form on the screen.
+
+Graphical User Interfaces. A GUI typically displays a schema to the user in dia-
+grammatic form. The user then can specify a query by manipulating the diagram.
+In many cases, GUIs utilize both menus and forms.
+
+Natural Language Interfaces. These interfaces accept requests written in Eng-
+lish or some other language and attempt to understand them. A natural language
+interface usually has its own schema, which is similar to the database conceptual
+schema, as well as a dictionary of important words. The natural language interface
+refers to the words in its schema, as well as to the set of standard words in its dic-
+tionary, that are used to interpret the request. If the interpretation is successful, the
+interface generates a high-level query corresponding to the natural language request
+and submits it to the DBMS for processing; otherwise, a dialogue is started with the
+user to clarify the request.
+
+Keyword-based Database Search. These are somewhat similar to Web search
+engines, which accept strings of natural language (like English or Spanish) words
+and match them with documents at specific sites (for local search engines) or Web
+pages on the Web at large (for engines like Google or Ask). They use predefined
+indexes on words and use ranking functions to retrieve and present resulting docu-
+ments in a decreasing degree of match. Such “free form” textual query interfaces are
+not yet common in structured relational databases, although a research area called
+keyword-based querying has emerged recently for relational databases.
+
+Speech Input and Output. Limited use of speech as an input query and speech
+as an answer to a question or result of a request is becoming commonplace. Appli-
+cations with limited vocabularies, such as inquiries for telephone directory, flight
+arrival/departure, and credit card account information, are allowing speech for
+input and output to enable customers to access this information. The speech input
+is detected using a library of predefined words and used to set up the parameters
+that are supplied to the queries. For output, a similar conversion from text or num-
+bers into speech takes place.
