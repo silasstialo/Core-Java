@@ -1,0 +1,10 @@
+End systems access the Internet through Internet Service Providers (ISPs),
+including residential ISPs such as local cable or telephone companies; corpo-
+rate ISPs; university ISPs; ISPs that provide WiFi access in airports, hotels, cof-
+fee shops, and other public places; and cellular data ISPs, providing mobile access
+to our smartphones and other devices. Each ISP is in itself a network of packet
+switches and communication links. ISPs provide a variety of types of network access
+to the end systems, including residential broadband access such as cable modem
+or DSL, high-speed local area network access, and mobile wireless access. ISPs
+also provide Internet access to content providers, connecting servers directly to
+the Internet. The Internet is all about connecting end systems to each other, so the

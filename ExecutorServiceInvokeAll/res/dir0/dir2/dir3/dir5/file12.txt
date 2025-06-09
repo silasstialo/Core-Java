@@ -1,0 +1,17 @@
+End systems attached to the Internet provide a socket interface that speci-
+fies how a program running on one end system asks the Internet infrastructure to
+deliver data to a specific destination program running on another end system. This
+Internet socket interface is a set of rules that the sending program must follow so
+that the Internet can deliver the data to the destination program. We’ll discuss the
+Internet socket interface in detail in Chapter 2. For now, let’s draw upon a simple
+analogy, one that we will frequently use in this book. Suppose Alice wants to send
+a letter to Bob using the postal service. Alice, of course, can’t just write the letter
+(the data) and drop the letter out her window. Instead, the postal service requires
+that Alice put the letter in an envelope; write Bob’s full name, address, and zip
+code in the center of the envelope; seal the envelope; put a stamp in the upper-
+right-hand corner of the envelope; and finally, drop the envelope into an official
+postal service mailbox. Thus, the postal service has its own “postal service inter-
+face,” or set of rules, that Alice must follow to have the postal service deliver her
+letter to Bob. In a similar manner, the Internet has a socket interface that the pro-
+gram sending data must follow to have the Internet deliver the data to the program
+that will receive the data

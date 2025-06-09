@@ -1,0 +1,13 @@
+Packet-switched networks (which transport packets) are in many ways
+similar to transportation networks of highways, roads, and intersections (which
+transport vehicles). Consider, for example, a factory that needs to move a large
+amount of cargo to some destination warehouse located thousands of kilometers
+away. At the factory, the cargo is segmented and loaded into a fleet of trucks.
+Each of the trucks then independently travels through the network of highways,
+roads, and intersections to the destination warehouse. At the destination ware-
+house, the cargo is unloaded and grouped with the rest of the cargo arriving
+from the same shipment. Thus, in many ways, packets are analogous to trucks,
+communication links are analogous to highways and roads, packet switches are
+analogous to intersections, and end systems are analogous to buildings. Just as
+a truck takes a path through the transportation network, a packet takes a path
+through a computer network.

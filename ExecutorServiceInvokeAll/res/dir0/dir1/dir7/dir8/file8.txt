@@ -1,0 +1,7 @@
+ISPs that provide access to end systems must also be interconnected. These lower-
+tier ISPs are thus interconnected through national and international upper-tier ISPs
+and these upper-tier ISPs are connected directly to each other. An upper-tier ISP
+consists of high-speed routers interconnected with high-speed fiber-optic links. Each
+ISP network, whether upper-tier or lower-tier, is managed independently, runs the
+IP protocol (see below), and conforms to certain naming and address conventions.
+We’ll examine ISPs and their interconnection more closely in Section 1.3.

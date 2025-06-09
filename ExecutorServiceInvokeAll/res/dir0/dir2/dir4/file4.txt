@@ -1,0 +1,6 @@
+The postal service, of course, provides more than one service to its custom-
+ers. It provides express delivery, reception confirmation, ordinary use, and many
+more services. In a similar manner, the Internet provides multiple services to its
+applications. When you develop an Internet application, you too must choose one
+of the Internet’s services for your application. We’ll describe the Internet’s ser-
+vices in Chapter 2

@@ -1,0 +1,8 @@
+End systems, packet switches, and other pieces of the Internet run protocols that
+control the sending and receiving of information within the Internet. The Transmission
+Control Protocol (TCP) and the Internet Protocol (IP) are two of the most impor-
+tant protocols in the Internet. The IP protocol specifies the format of the packets
+that are sent and received among routers and end systems. The Internet’s principal
+protocols are collectively known as TCP/IP. We’ll begin looking into protocols in
+this introductory chapter. But that’s just a start—much of this book is concerned with
+networking protocols

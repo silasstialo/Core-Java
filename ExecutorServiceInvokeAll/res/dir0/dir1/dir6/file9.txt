@@ -1,0 +1,10 @@
+End systems are connected together by a network of communication links and
+packet switches. We’ll see in Section 1.2 that there are many types of communica-
+tion links, which are made up of different types of physical media, including coaxial
+cable, copper wire, optical fiber, and radio spectrum. Different links can transmit
+data at different rates, with the transmission rate of a link measured in bits/second.
+When one end system has data to send to another end system, the sending end system
+segments the data and adds header bytes to each segment. The resulting packages
+of information, known as packets in the jargon of computer networks, are then sent
+through the network to the destination end system, where they are reassembled into
+the original data.

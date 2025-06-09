@@ -1,0 +1,8 @@
+We have just given two descriptions of the Internet; one in terms of its hardware
+and software components, the other in terms of an infrastructure for providing ser-
+vices to distributed applications. But perhaps you are still confused as to what the
+Internet is. What are packet switching and TCP/IP? What are routers? What kinds of
+communication links are present in the Internet? What is a distributed application?
+How can a thermostat or body scale be attached to the Internet? If you feel a bit over-
+whelmed by all of this now, don’t worry—the purpose of this book is to introduce
+you to both the nuts and bolts of the Internet and the principles that govern how and

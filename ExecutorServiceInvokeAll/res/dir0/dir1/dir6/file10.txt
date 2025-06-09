@@ -1,0 +1,10 @@
+A packet switch takes a packet arriving on one of its incoming communication
+links and forwards that packet on one of its outgoing communication links. Packet
+switches come in many shapes and flavors, but the two most prominent types in
+today’s Internet are routers and link-layer switches. Both types of switches forward
+packets toward their ultimate destinations. Link-layer switches are typically used in
+access networks, while routers are typically used in the network core. The sequence
+of communication links and packet switches traversed by a packet from the send-
+ing end system to the receiving end system is known as a route or path through
+the network. Cisco predicts annual global IP traffic will reach nearly five zettabytes
+(1021 bytes) by 2022 [Cisco VNI 2020].
