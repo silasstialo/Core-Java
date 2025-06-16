@@ -35,7 +35,25 @@ public class Main {
         /*
             thenCompose() is used if you have an asynchronous mapping function (i.e. one that returns a CompletableFuture).
             It will then return a future with the result directly, rather than a nested future.
-        */
+
+            1. thenApply — transforms the result
+            Use this when the next operation is synchronous and returns a simple value.
+
+             Return CompletableFuture<T> when:
+                The method does asynchronous work (non-blocking).
+                The method involves I/O, like:
+                    Making HTTP requests
+                    Reading from a database
+                    Accessing a file system
+                The method uses CompletableFuture.supplyAsync(...) or similar async APIs.
+                You want the caller to chain async operations using .thenCompose(), .thenApply(), etc.
+
+                Return a normal value (T) when:
+                    The method does synchronous work.
+                    The work is immediate or very fast (e.g., simple computation or mapping).
+                    It doesn’t involve I/O or waiting.
+                    You don’t need it to be part of an async chain.
+
          */
         CompletableFuture<Void> confirmationFuture = shipmentFuture.thenAcceptAsync(
                 trackingID -> sendConfirmationMessage(orderID, trackingID), executor);
