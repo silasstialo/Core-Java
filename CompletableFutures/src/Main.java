@@ -41,7 +41,7 @@ public class Main {
             System.out.println("Order processing complete for order : " + orderID);
         }
         catch (CompletionException e){
-            System.err.println("Order processing failed: " + e.getCause() + e.getMessage());
+            System.err.println("Order processing failed: " + e.getCause().getMessage());
         }
 
         finally {
