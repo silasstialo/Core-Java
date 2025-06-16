@@ -32,6 +32,11 @@ public class Main {
         CompletableFuture.runAsync(() -> updateRecommendations(orderID), executor);
 
         //send confirmation email after the shipment task completes
+        /*
+            thenCompose() is used if you have an asynchronous mapping function (i.e. one that returns a CompletableFuture).
+            It will then return a future with the result directly, rather than a nested future.
+        */
+         */
         CompletableFuture<Void> confirmationFuture = shipmentFuture.thenAcceptAsync(
                 trackingID -> sendConfirmationMessage(orderID, trackingID), executor);
 
