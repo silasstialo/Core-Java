@@ -36,8 +36,12 @@ public class Main {
             thenCompose() is used if you have an asynchronous mapping function (i.e. one that returns a CompletableFuture).
             It will then return a future with the result directly, rather than a nested future.
 
-            1. thenApply — transforms the result
+            1. thenApply() — transforms the result
             Use this when the next operation is synchronous and returns a simple value.
+
+            thenAccept() is an instance method in Java.
+             It is used when we don’t want to return anything from our callback function and only want to run some code once a Future completes.
+             This method has access to the result of the CompletableFuture on which it is attached.
 
              Return CompletableFuture<T> when:
                 The method does asynchronous work (non-blocking).
